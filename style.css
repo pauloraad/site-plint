@@ -292,91 +292,113 @@ html {
     color: rgba(0, 0, 0, 0) !important;
   }
   
-  .w-webflow-badge, .w-webflow-badge * {
-    z-index: auto;
-    visibility: visible;
-    box-sizing: border-box;
-    width: auto;
-    height: auto;
-    max-height: none;
-    max-width: none;
-    min-height: 0;
-    min-width: 0;
-    float: none;
-    clear: none;
-    box-shadow: none;
-    opacity: 1;
-    direction: ltr;
-    font-family: inherit;
-    font-weight: inherit;
-    color: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    font-style: inherit;
-    font-variant: inherit;
-    text-align: inherit;
-    letter-spacing: inherit;
-    -webkit-text-decoration: inherit;
-    text-decoration: inherit;
-    text-indent: 0;
-    text-transform: inherit;
-    text-shadow: none;
-    font-smoothing: auto;
-    vertical-align: baseline;
-    cursor: inherit;
-    white-space: inherit;
-    word-break: normal;
-    word-spacing: normal;
-    word-wrap: normal;
-    background: none;
-    border: 0 rgba(0, 0, 0, 0);
-    border-radius: 0;
-    margin: 0;
-    padding: 0;
-    list-style-type: disc;
-    transition: none;
-    display: block;
-    position: static;
-    top: auto;
-    bottom: auto;
-    left: auto;
-    right: auto;
-    overflow: visible;
-    transform: none;
+  @keyframes make-visible {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 25px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes fade-in-move-on-scroll {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 25px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes fade-in-on-scroll {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-in-on-scroll {
+    from {
+      transform: translate3d(-100%, 0, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
   }
   
-  .w-webflow-badge {
-    white-space: nowrap;
-    cursor: pointer;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .1);
-    visibility: visible !important;
-    z-index: 2147483647 !important;
-    color: #aaadb0 !important;
-    opacity: 1 !important;
-    width: auto !important;
-    height: auto !important;
-    background-color: #fff !important;
-    border-radius: 3px !important;
-    margin: 0 !important;
-    padding: 6px 8px 6px 6px !important;
-    font-size: 12px !important;
-    line-height: 14px !important;
-    text-decoration: none !important;
-    display: inline-block !important;
-    position: fixed !important;
-    top: auto !important;
-    bottom: 12px !important;
-    left: auto !important;
-    right: 12px !important;
-    overflow: visible !important;
-    transform: none !important;
+  @keyframes scale-in-on-scroll {
+    from {
+      transform: scale(0.5);
+    }
+    to {
+      transform: scale(1);
+    }
   }
   
-  .w-webflow-badge > img {
-    visibility: visible !important;
-    opacity: 1 !important;
-    vertical-align: middle !important;
-    display: inline-block !important;
+  .element {
+    transform: rotate(45deg);
+  }
+
+  .element {
+    transform: scale(2);
+  }
+
+  .element {
+    transform: translate(10px, 10px);
+  }
+
+  .element {
+    opacity: 0.5;
+  }
+
+  .element {
+    background-color: red;
+  }
+  
+  @keyframes color-change {
+    from {
+      background-color: red;
+    }
+    to {
+      background-color: blue;
+    }
+  }
+  
+  .element {
+    animation: color-change 1s ease-in-out;
+  }
+
+  @keyframes transform-and-opacity {
+    from {
+      transform: translate(10px, 10px);
+      opacity: 0.5;
+    }
+    to {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+  }
+  
+  .element {
+    animation: transform-and-opacity 1s ease-in-out;
+  }
+
+  .element {
+    animation: slide-in-on-scroll 1s ease-in-out;
+  }
+  
+  .element {
+    animation: fade-in-on-scroll 1s ease-in-out;
+  }
+  
+  #make {
+    animation: make-visible 0.5s ease-in-out;
   }
   
   h1, h2, h3, h4, h5, h6 {
